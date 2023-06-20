@@ -1,17 +1,18 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { useState } from "react";
+import Navbar from "./components/layout/navbar/Navbar";
+import ItemList from "./components/pages/itemList/ItemList";
 
 function App() {
-  const funcionSaludar = () => {
-    alert("Hola mundo");
+  const [saludo, setSaludo] = useState("¡¡Bienvenido a Burger Manía!!");
+
+  const cambiarSaludo = (nuevoSaludo) => {
+    setSaludo(nuevoSaludo);
   };
 
   return (
     <div>
       <Navbar />
-      <h1>Hola Mundo</h1>
-      <button onClick={funcionSaludar}>Saludar</button>
-      <Footer />
+      <ItemList saludo={saludo} cambiarSaludo={cambiarSaludo} />
     </div>
   );
 }
